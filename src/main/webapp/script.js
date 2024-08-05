@@ -27,3 +27,42 @@ function nextSlide() {
 
 setInterval(nextSlide, 3000);
 
+// profile, wishlist, purchase page add & remove
+const profile = document.getElementById('profile');
+const myProfile = document.getElementById('myProfile');
+const wishlist = document.getElementById('wishlist');
+const myWishlist = document.getElementById('myWishlist');
+const purchase = document.getElementById('purchase');
+const purchaseHistory = document.getElementById('purchaseHistory');
+
+function showSection(sectionToShow, activeButton) {
+
+  myProfile.classList.add('hidden');
+  myWishlist.classList.add('hidden');
+  purchaseHistory.classList.add('hidden');
+  
+  profile.classList.remove('border');
+  wishlist.classList.remove('border');
+  purchase.classList.remove('border');
+
+  sectionToShow.classList.remove('hidden');
+
+  activeButton.classList.add('border','border-slate-950');
+  
+}
+
+profile.addEventListener('click', function() {
+  showSection(myProfile, profile);
+});
+
+wishlist.addEventListener('click', function() {
+  showSection(myWishlist, wishlist);
+});
+
+purchase.addEventListener('click', function() {
+  showSection(purchaseHistory, purchase);
+});
+
+
+
+

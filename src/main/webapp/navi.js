@@ -7,7 +7,7 @@ const navInnerHTML = `
 
 	<section class="menuBar">
 
-    <div class=" flex items-center justify-between w-full bg-slate-50 border border-x-0 border-slate-950 h-16">
+    <div class="fixed flex items-center justify-between w-full bg-slate-50 border border-x-0 border-slate-950 h-16 z-10">
       <div>
         <img class="w-[180px] p-1 ml-12 mr-12" src="./logo/logo9.png" alt="">
       </div>
@@ -24,7 +24,7 @@ const navInnerHTML = `
       </div>
 
       <div class=" mr-12 flex space-x-8 ">
-        <div class=" hover:drop-shadow-xl relative z-10">
+        <div class=" hover:drop-shadow-xl relative">
           <i class=" group fa-lg far fa-user cursor-pointer">
             <div class="hidden group-hover:flex w-[400px] delay-100 duration-100 bg-slate-50 right-[-163px] top-[25px] shadow-slate-400 shadow-md absolute ">
               <div class="flex flex-col p-10 font-bold font-sans ">
@@ -46,9 +46,11 @@ const navInnerHTML = `
           </i>
           
         </div>
-        <div class=" hover:drop-shadow-xl ">
+        <a href="userprofile.html">
+          <div class=" hover:drop-shadow-xl ">
           <i class="fa-lg far fa-heart cursor-pointer"></i>
         </div>
+        </a>
         <div id="shoppingCartIcon" class=" hover:drop-shadow-xl ">
           <i class="fa-lg far fa-shopping-cart cursor-pointer"></i>
         </div>
@@ -87,8 +89,8 @@ const navInnerHTML = `
   <!-- login form for sign in -->
   <div id="loginFormSignIn" class="hidden fixed inset-0 bg-slate-900 bg-opacity-50 justify-center items-center">
     <div class="bg-slate-50 p-8 rounded shadow-lg w-1/3 relative">
-      <div id="closeLoginFormSignIn" class=" absolute top-3 right-3">      
-        <i class="fa-lg far fa-times"></i>
+      <div id="closeLoginFormSignIn" class="absolute top-3 right-3 cursor-pointer text-slate-400 hover:text-gray-600">
+        <i class="fa-lg fa far fa-times"></i>
       </div>
       <h2 class="text-2xl font-bold mb-6">Welcome Back</h2>
       <form method="POST" action="">
@@ -111,9 +113,9 @@ const navInnerHTML = `
   <div id="shoppingCartBox" class="fixed top-0 right-0 h-screen w-96 bg-white shadow-xl z-10 transform translate-x-full transition-transform duration-300 ease-in-out">
     <div class="p-4 relative h-full">
         <div id="closeShoppingCart" class="cursor-pointer text-slate-500 hover:text-slate-950 absolute top-4 right-4">
-            <i class="fa-lg far fa-times"></i>
+            <i class="fa-lg fa far fa-times"></i>
         </div>
-        <h2 class="text-xl font-bold my-6">Shopping Cart</h2>
+        <h2 class="text-xl font-bold my-8">Shopping Cart</h2>
         <!-- <p>No items in the cart.</p> -->
     </div>
   </div>

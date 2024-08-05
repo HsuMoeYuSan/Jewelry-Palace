@@ -10,13 +10,58 @@
 
 <body>
 
-  <!-- nav bar & loginForm -->
-  <div id="nav"></div>
+<!-- nav bar & loginForm -->
+<div id="nav"></div>
 
+<section class="container mx-auto p-10 pb-5 ">
+    <div class=" text-normal font-semibold ">
+        <a href="index.html" class=" ">Home &nbsp;/&nbsp;</a>
+        <span href="#">Profile</span>
+        <h1 class="font-mono mt-5 text-5xl tracking-tighter ">MY PROFILE</h1>
+    </div>
+    <div class=" flex space-x-3 my-8">
+        <div id="profile" class=" p-3 w-max bg-slate-300 cursor-pointer ">
+            My Profile
+        </div>
+        <div id="wishlist" class=" p-3 w-max bg-slate-300 cursor-pointer ">
+            My Wishlist
+        </div>
+        <div id="purchase" class=" p-3 w-max bg-slate-300 cursor-pointer ">
+            Purchase History
+        </div>
+    </div>
+    <div class=" border-b border-slate-950 w-full"> </div>
+    <!-- My Profile -->
+    <div id="myProfile" class="pt-10 space-y-10 text-xl ">
+        <div class=" font-semibold">My Profile</div>
+        <div>
+        <p class=" font-semibold">Name</p>
+        <p>AUNG THURA KYAW</p>
+        </div>
+        <div>
+        <p class=" font-semibold">Email</p>
+        <p>thu454909@gmail.com</p>
+        </div>
+    </div>
+    <!--My Wishlist -->
+    <div id="myWishlist" class=" hidden pt-10 space-y-10 text-xl ">
+        <div class=" font-semibold">My Wishlist</div>  
+        <div>
 
-  <!-- elf sight  -->
-  <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
-  <div class="elfsight-app-28c6dc95-5400-49df-a698-6341ed374307" data-elfsight-app-lazy></div>
+        </div>      
+    </div>
+    <!-- Purchase History -->
+    <div id="purchaseHistory" class=" hidden pt-10 space-y-10 text-xl ">
+        <div class=" font-semibold">Purchase History</div>
+        <div>
+        
+        </div>
+    </div>
+</section>
+
+<!-- elf sight  -->
+<script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+<div class="elfsight-app-28c6dc95-5400-49df-a698-6341ed374307" data-elfsight-app-lazy></div>
 
 </body>
 
