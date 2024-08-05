@@ -1,31 +1,6 @@
 /**
  * 
  */
-const slides = document.getElementsByClassName('carouselItem');
-let curSlide = 1;
-
-function carousel() {
-  if (curSlide > slides.length) {
-    curSlide = 1; 
-  } else if (curSlide < 1) {
-    curSlide = slides.length; 
-  }
-
-  for (let i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-
-  slides[curSlide - 1].style.display = "block";
-}
-
-carousel();
-
-function nextSlide() {
-  curSlide++;
-  carousel();
-}
-
-setInterval(nextSlide, 3000);
 
 // profile, wishlist, purchase page add & remove
 const profile = document.getElementById('profile');
@@ -64,5 +39,34 @@ purchase.addEventListener('click', function() {
 });
 
 
+const iconWishlist = document.getElementById('wishlistIcon');
+console.log(iconWishlist);
 
+
+// carousel banner
+const slides = document.getElementsByClassName('carouselItem');
+let curSlide = 1;
+
+function carousel() {
+  if (curSlide > slides.length) {
+    curSlide = 1; 
+  } else if (curSlide < 1) {
+    curSlide = slides.length; 
+  }
+
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+
+  slides[curSlide - 1].style.display = "block";
+}
+
+carousel();
+
+function nextSlide() {
+  curSlide++;
+  carousel();
+}
+
+setInterval(nextSlide, 3000);
 
