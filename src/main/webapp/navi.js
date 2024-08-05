@@ -4,6 +4,7 @@
 const navContainer =  document.getElementById("nav")
 
 const navInnerHTML = `
+
 	<section class="menuBar">
 
     <div class=" flex items-center justify-between w-full bg-slate-50 border border-x-0 border-slate-950 h-16">
@@ -48,7 +49,7 @@ const navInnerHTML = `
         <div class=" hover:drop-shadow-xl ">
           <i class="fa-lg far fa-heart cursor-pointer"></i>
         </div>
-        <div class=" hover:drop-shadow-xl ">
+        <div id="shoppingCartIcon" class=" hover:drop-shadow-xl ">
           <i class="fa-lg far fa-shopping-cart cursor-pointer"></i>
         </div>
       </div>
@@ -59,22 +60,22 @@ const navInnerHTML = `
   <!-- login form for sign up -->
   <div id="loginForm" class="hidden fixed inset-0 bg-slate-900 bg-opacity-50 justify-center items-center">
     <div class="bg-slate-50 p-8 rounded shadow-lg w-1/3 relative">
-      <div id="closeLoginForm" class="absolute top-3 right-3 cursor-pointer text-gray-400 hover:text-gray-600">
+      <div id="closeLoginForm" class="absolute top-3 right-3 cursor-pointer text-slate-400 hover:text-gray-600">
         <i class="fa-lg fa far fa-times"></i>
       </div>
-      <h2 class="text-3xl font-bold mb-6 text-center text-gray-800">Welcome to Jewelry Palace</h2>
+      <h2 class="text-3xl font-bold mb-6 text-center text-slate-800">Welcome to Jewelry Palace</h2>
       <form method="get" action="">
         <div class="mb-4">
-          <label for="userName" class="block text-sm font-medium text-gray-700 mb-1">Enter your name</label>
+          <label for="userName" class="block text-sm font-medium text-slate-700 mb-1">Enter your name</label>
           <input type="text" id="userName" name="userName" class="w-full px-0 py-2 border-b border-gray-300 focus:border-slate-950 focus:outline-none transition duration-200" required>
         </div>
         <div class="mb-4">
-          <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Enter your email</label>
-          <input type="email" id="email" name="email" class="w-full px-0 py-2 border-b border-gray-300 focus:border-slate-950 focus:outline-none transition duration-200" required>
+          <label for="email" class="block text-sm font-medium text-slate-700 mb-1">Enter your email</label>
+          <input type="email" id="email" name="email" class="w-full px-0 py-2 border-b border-slate-300 focus:border-slate-950 focus:outline-none transition duration-200" required>
         </div>
         <div class="mb-6">
-          <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Enter your password</label>
-          <input type="password" id="password" name="password" class="w-full px-0 py-2 border-b border-gray-300 focus:border-slate-950 focus:outline-none transition duration-200" required>
+          <label for="password" class="block text-sm font-medium text-slate-700 mb-1">Enter your password</label>
+          <input type="password" id="password" name="password" class="w-full px-0 py-2 border-b border-slate-300 focus:border-slate-950 focus:outline-none transition duration-200" required>
         </div>
         <div>
           <button type="submit" class="w-full bg-slate-500 text-white py-2 rounded-md shadow-lg hover:bg-slate-600 focus:ring-4 focus:ring-slate-300 transition ease-in-out duration-150">SIGN UP</button>
@@ -92,17 +93,28 @@ const navInnerHTML = `
       <h2 class="text-2xl font-bold mb-6">Welcome Back</h2>
       <form method="POST" action="">
         <div class="mb-4">
-          <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Enter your email</label>
-          <input type="email" id="email" name="email" class="w-full px-0 py-2 border-b border-gray-300 focus:border-slate-950 focus:outline-none transition duration-200" required>
+          <label for="email" class="block text-sm font-medium text-slate-700 mb-1">Enter your email</label>
+          <input type="email" id="email" name="email" class="w-full px-0 py-2 border-b border-slate-300 focus:border-slate-950 focus:outline-none transition duration-200" required>
         </div>
         <div class="mb-6">
-          <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Enter your password</label>
-          <input type="password" id="password" name="password" class="w-full px-0 py-2 border-b border-gray-300 focus:border-slate-950 focus:outline-none transition duration-200" required>
+          <label for="password" class="block text-sm font-medium text-slate-700 mb-1">Enter your password</label>
+          <input type="password" id="password" name="password" class="w-full px-0 py-2 border-b border-slate-300 focus:border-slate-950 focus:outline-none transition duration-200" required>
         </div>
         <div class="flex justify-between items-center">
                 <button type="submit" class="w-full bg-slate-500 text-white px-6 py-2 rounded-md shadow-sm hover:bg-slate-600 focus:ring-4 focus:ring-slate-300 transition ease-in-out duration-150">SIGN IN</button>
         </div>
       </form>
+    </div>
+  </div>
+
+  <!-- shopping cart box -->
+  <div id="shoppingCartBox" class="fixed top-0 right-0 h-screen w-96 bg-white shadow-xl z-10 transform translate-x-full transition-transform duration-300 ease-in-out">
+    <div class="p-4 relative h-full">
+        <div id="closeShoppingCart" class="cursor-pointer text-slate-500 hover:text-slate-950 absolute top-4 right-4">
+            <i class="fa-lg far fa-times"></i>
+        </div>
+        <h2 class="text-xl font-bold my-6">Shopping Cart</h2>
+        <!-- <p>No items in the cart.</p> -->
     </div>
   </div>
 
@@ -137,4 +149,17 @@ signInLink.addEventListener("click", function() {
 
 closeLoginFormSignIn.addEventListener("click", function() {
   loginFormSignIn.classList.add("hidden");
+});
+
+// shopping cart 
+const shoppingCartIcon = document.getElementById('shoppingCartIcon');
+const shoppingCartBox = document.getElementById('shoppingCartBox');
+const closeShoppingCart = document.getElementById('closeShoppingCart');
+
+shoppingCartIcon.addEventListener('click', function () {
+    shoppingCartBox.style.transform = 'translateX(0)';
+});
+
+closeShoppingCart.addEventListener('click', function () {
+    shoppingCartBox.style.transform = 'translateX(100%)';
 });
