@@ -46,9 +46,11 @@ const navInnerHTML = `
           </i>
           
         </div>
-        <div id="iconWishlist" class=" hover:drop-shadow-xl ">
-          <i class="fa-lg far fa-heart cursor-pointer"></i>
-        </div>
+        <a href="userprofile.html">
+          <div class=" hover:drop-shadow-xl ">
+            <i class="fa-lg far fa-heart cursor-pointer"></i>
+          </div>
+        </a>
         <div id="shoppingCartIcon" class=" hover:drop-shadow-xl ">
           <i class="fa-lg far fa-shopping-cart cursor-pointer"></i>
         </div>
