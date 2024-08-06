@@ -66,7 +66,7 @@ const navInnerHTML = `
         <i class="fa-lg fa far fa-times"></i>
       </div>
       <h2 class="text-3xl font-bold mb-6 text-center text-slate-800">Welcome to Jewelry Palace</h2>
-      <form method="get" action="">
+      <form method="get" action="authenticationServlet">
         <div id="userNameContainer" class="mb-4">
           <label for="userName" class="block text-sm font-medium text-slate-700 mb-1">Enter your name</label>
           <input type="text" id="userName" name="userName" class="w-full px-0 py-2 border-b border-gray-300 focus:border-slate-950 focus:outline-none transition duration-200" required>
@@ -139,4 +139,15 @@ shoppingCartIcon.addEventListener('click', function () {
 closeShoppingCart.addEventListener('click', function () {
     shoppingCartBox.style.transform = 'translateX(100%)';
 });
+
+document.getElementById('signInLink').addEventListener('click', function() {
+    document.getElementById('action').value = 'signIn'; // Set action to sign-in
+    document.getElementById('submitBtn').textContent = 'SIGN IN'; // Update button text
+});
+
+document.getElementById('signUpLink').addEventListener('click', function() {
+    document.getElementById('action').value = 'signUp'; // Set action to sign-up
+    document.getElementById('submitBtn').textContent = 'SIGN UP'; // Update button text
+});
+
 
