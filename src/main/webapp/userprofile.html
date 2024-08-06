@@ -3,9 +3,9 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Jewelry Palace</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="fontawesomepro/fontawesomepro/css/all.min.css">
-  <link rel="icon" href="./logo/logo7.png">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="fontawesomepro/fontawesomepro/css/all.min.css">
+<link rel="icon" href="./logo/logo7.png">
 </head>
 
 <body>
@@ -16,7 +16,7 @@
 <section class="container mx-auto p-10 pb-5">
     <div class="text-normal font-semibold pt-20">
         <a href="index.html" class="">Home &nbsp;/&nbsp;</a>
-        <span href="#">Profile</span>
+        <span id="textForPfMwPh">My Profile</span>
         <h1 id="pageTitle" class="font-mono mt-5 text-5xl tracking-tighter">MY PROFILE</h1>
     </div>
     <div class="flex space-x-3 my-8">
@@ -71,9 +71,11 @@
     const myWishlist = document.getElementById('myWishlist');
     const purchase = document.getElementById('purchase');
     const purchaseHistory = document.getElementById('purchaseHistory');
-    const pageTitle = document.getElementById('pageTitle'); // Reference to <h1>
+    const pageTitle = document.getElementById('pageTitle'); 
+    const changeText = document.getElementById('textForPfMwPh');
 
-    function showSection(sectionToShow, activeButton, titleText) {
+    function showSection(sectionToShow, activeButton, titleText, spanText) {
+
         myProfile.classList.add('hidden');
         myWishlist.classList.add('hidden');
         purchaseHistory.classList.add('hidden');
@@ -85,19 +87,22 @@
         sectionToShow.classList.remove('hidden');
         activeButton.classList.add('border', 'border-slate-950');
         
-        pageTitle.textContent = titleText; // Update <h1> text
+        changeText.textContent = "";
+
+        pageTitle.textContent = titleText; 
+        changeText.textContent = spanText; 
     }
 
     profile.addEventListener('click', function() {
-        showSection(myProfile, profile, 'MY PROFILE');
+        showSection(myProfile, profile, 'MY PROFILE', 'My Profile');
     });
 
     wishlist.addEventListener('click', function() {
-        showSection(myWishlist, wishlist, 'MY WISHLIST');
+        showSection(myWishlist, wishlist, 'MY WISHLIST', 'My Wishlist');
     });
 
     purchase.addEventListener('click', function() {
-        showSection(purchaseHistory, purchase, 'PURCHASE HISTORY');
+        showSection(purchaseHistory, purchase, 'PURCHASE HISTORY', 'Purchase History');
     });
 
 </script>
