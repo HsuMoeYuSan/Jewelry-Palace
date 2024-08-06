@@ -5,7 +5,7 @@ const navContainer =  document.getElementById("nav")
 
 const navInnerHTML = `
 
-	<section class="menuBar">
+  <section class="menuBar">
 
     <div class="fixed flex items-center justify-between w-full bg-slate-50 border border-x-0 border-slate-950 h-16 z-10">
       <div>
@@ -59,15 +59,15 @@ const navInnerHTML = `
     </div>
   </section>
 
-  <!-- login form for sign up -->
-  <div id="loginForm" class="hidden fixed inset-0 bg-slate-900 bg-opacity-50 justify-center items-center">
+  <!-- login Form for Sign Up & Sign In -->
+  <div id="loginForm" class="hidden fixed inset-0 bg-slate-900 bg-opacity-50 justify-center items-center z-10">
     <div class="bg-slate-50 p-8 rounded shadow-lg w-1/3 relative">
       <div id="closeLoginForm" class="absolute top-3 right-3 cursor-pointer text-slate-400 hover:text-gray-600">
         <i class="fa-lg fa far fa-times"></i>
       </div>
       <h2 class="text-3xl font-bold mb-6 text-center text-slate-800">Welcome to Jewelry Palace</h2>
       <form method="get" action="">
-        <div class="mb-4">
+        <div id="userNameContainer" class="mb-4">
           <label for="userName" class="block text-sm font-medium text-slate-700 mb-1">Enter your name</label>
           <input type="text" id="userName" name="userName" class="w-full px-0 py-2 border-b border-gray-300 focus:border-slate-950 focus:outline-none transition duration-200" required>
         </div>
@@ -80,30 +80,7 @@ const navInnerHTML = `
           <input type="password" id="password" name="password" class="w-full px-0 py-2 border-b border-slate-300 focus:border-slate-950 focus:outline-none transition duration-200" required>
         </div>
         <div>
-          <button type="submit" class="w-full bg-slate-500 text-white py-2 rounded-md shadow-lg hover:bg-slate-600 focus:ring-4 focus:ring-slate-300 transition ease-in-out duration-150">SIGN UP</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- login form for sign in -->
-  <div id="loginFormSignIn" class="hidden fixed inset-0 bg-slate-900 bg-opacity-50 justify-center items-center">
-    <div class="bg-slate-50 p-8 rounded shadow-lg w-1/3 relative">
-      <div id="closeLoginFormSignIn" class="absolute top-3 right-3 cursor-pointer text-slate-400 hover:text-gray-600">
-        <i class="fa-lg fa far fa-times"></i>
-      </div>
-      <h2 class="text-2xl font-bold mb-6">Welcome Back</h2>
-      <form method="POST" action="">
-        <div class="mb-4">
-          <label for="email" class="block text-sm font-medium text-slate-700 mb-1">Enter your email</label>
-          <input type="email" id="email" name="email" class="w-full px-0 py-2 border-b border-slate-300 focus:border-slate-950 focus:outline-none transition duration-200" required>
-        </div>
-        <div class="mb-6">
-          <label for="password" class="block text-sm font-medium text-slate-700 mb-1">Enter your password</label>
-          <input type="password" id="password" name="password" class="w-full px-0 py-2 border-b border-slate-300 focus:border-slate-950 focus:outline-none transition duration-200" required>
-        </div>
-        <div class="flex justify-between items-center">
-                <button type="submit" class="w-full bg-slate-500 text-white px-6 py-2 rounded-md shadow-sm hover:bg-slate-600 focus:ring-4 focus:ring-slate-300 transition ease-in-out duration-150">SIGN IN</button>
+          <button id="submitBtn" type="submit" class="w-full bg-slate-500 text-white py-2 rounded-md shadow-lg hover:bg-slate-600 focus:ring-4 focus:ring-slate-300 transition ease-in-out duration-150">SIGN UP</button>
         </div>
       </form>
     </div>
@@ -119,40 +96,37 @@ const navInnerHTML = `
         <!-- <p>No items in the cart.</p> -->
     </div>
   </div>
-
+	
 `;
 navContainer.innerHTML = navInnerHTML;
 
-// login form sign up
+// login form sign up & sign in
 const signUpLink = document.getElementById("signUpLink");
+const signInLink = document.getElementById('signInLink');
 const loginForm = document.getElementById("loginForm");
 const closeLoginForm = document.getElementById("closeLoginForm");
+const userNameContainer = document.getElementById('userNameContainer');
+const submitBtn = document.getElementById('submitBtn');
 
-signUpLink.addEventListener("click", function() {
+
+function showLoginForm() {
   loginForm.classList.remove("hidden");
   loginForm.classList.add("flex");
-  loginForm.classList.add("z-10");
+}
+signUpLink.addEventListener("click", function() {
+  showLoginForm();
+  userNameContainer.classList.remove("hidden");
+  submitBtn.textContent = 'SIGN UP'; // Change text to 'SIGN UP'
 });
-
 closeLoginForm.addEventListener("click", function() {
   loginForm.classList.add("hidden");
 });
-
-// login form sign in
-const signInLink = document.getElementById('signInLink');
-const loginFormSignIn = document.getElementById("loginFormSignIn");
-const closeLoginFormSignIn = document.getElementById("closeLoginFormSignIn");
-
-signInLink.addEventListener("click", function() {
-  loginFormSignIn.classList.remove("hidden");
-  loginFormSignIn.classList.add("flex");
-  loginFormSignIn.classList.add("z-10");
+signInLink.addEventListener("click", function(){
+  showLoginForm();
+  userNameContainer.classList.add("hidden");
+  submitBtn.textContent = 'SIGN IN'; // Change text to 'SIGN IN'
 });
-
-closeLoginFormSignIn.addEventListener("click", function() {
-  loginFormSignIn.classList.add("hidden");
-});
-
+  
 // shopping cart 
 const shoppingCartIcon = document.getElementById('shoppingCartIcon');
 const shoppingCartBox = document.getElementById('shoppingCartBox');
@@ -165,3 +139,4 @@ shoppingCartIcon.addEventListener('click', function () {
 closeShoppingCart.addEventListener('click', function () {
     shoppingCartBox.style.transform = 'translateX(100%)';
 });
+
