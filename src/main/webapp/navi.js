@@ -23,9 +23,10 @@ const navInnerHTML = `
         </ul>
       </div>
 
+      <!-- sign up button hover-->
       <div class=" mr-12 flex space-x-8 ">
         <div class=" hover:drop-shadow-xl relative">
-          <i class=" group fa-lg far fa-user cursor-pointer">
+          <i id="profileIcon" class=" group fa-lg far fa-user cursor-pointer">
             <div class="hidden group-hover:flex w-[400px] delay-100 duration-100 bg-slate-50 right-[-163px] top-[25px] shadow-slate-400 shadow-md absolute ">
               <div class="flex flex-col p-10 font-bold font-sans ">
                 <div class=" text-2xl text-left mb-4 ">
@@ -34,12 +35,12 @@ const navInnerHTML = `
                 <div class=" text-left mb-4 text-sm font-normal">
                   One account to shop personalized recommendations and exclusive products.
                 </div>
-                <div id="signInLink" class="cursor-pointer py-3 mb-4 text-center text-xl text-slate-50 bg-slate-950 ">
+                <div id="signInLink" class=" cursor-pointer py-3 mb-4 text-center text-xl text-slate-50 bg-slate-950 ">
                   SIGN IN
               	</div>
               	<div class="text-left text-sm font-normal">
                 	Don't have an account?
-                	<span id="signUpLink" class="font-semibold ml-2 cursor-pointer" >Sign up</span>
+                	<span id="signUpLink" class=" font-semibold ml-2 cursor-pointer" >Sign up</span>
               	</div>
               </div>
             </div>
@@ -65,8 +66,8 @@ const navInnerHTML = `
       <div id="closeLoginForm" class="absolute top-3 right-3 cursor-pointer text-slate-400 hover:text-gray-600">
         <i class="fa-lg fa far fa-times"></i>
       </div>
-      <h2 class="text-3xl font-bold mb-6 text-center text-slate-800">Welcome to Jewelry Palace</h2>
-      <form method="get" action="authenticationServlet">
+      <h2 id="headerWel" class="text-3xl font-bold mb-6 text-center text-slate-800">Welcome to Jewelry Palace</h2>
+      <form method="get" action="">
         <div id="userNameContainer" class="mb-4">
           <label for="userName" class="block text-sm font-medium text-slate-700 mb-1">Enter your name</label>
           <input type="text" id="userName" name="userName" class="w-full px-0 py-2 border-b border-gray-300 focus:border-slate-950 focus:outline-none transition duration-200" required>
@@ -107,7 +108,8 @@ const loginForm = document.getElementById("loginForm");
 const closeLoginForm = document.getElementById("closeLoginForm");
 const userNameContainer = document.getElementById('userNameContainer');
 const submitBtn = document.getElementById('submitBtn');
-
+const headerWel = document.getElementById('headerWel');
+const profileIcon = document.getElementById('profileIcon');
 
 function showLoginForm() {
   loginForm.classList.remove("hidden");
@@ -116,7 +118,8 @@ function showLoginForm() {
 signUpLink.addEventListener("click", function() {
   showLoginForm();
   userNameContainer.classList.remove("hidden");
-  submitBtn.textContent = 'SIGN UP'; // Change text to 'SIGN UP'
+  submitBtn.textContent = 'SIGN UP'; 
+  headerWel.textContent = 'Welcome to Jewelry Palace';
 });
 closeLoginForm.addEventListener("click", function() {
   loginForm.classList.add("hidden");
@@ -124,7 +127,11 @@ closeLoginForm.addEventListener("click", function() {
 signInLink.addEventListener("click", function(){
   showLoginForm();
   userNameContainer.classList.add("hidden");
-  submitBtn.textContent = 'SIGN IN'; // Change text to 'SIGN IN'
+  submitBtn.textContent = 'SIGN IN'; 
+  headerWel.textContent = 'Welcome Back';
+});
+submitBtn.addEventListener('click',function(){
+    profileIcon.classList.remove('group'); 
 });
   
 // shopping cart 
@@ -141,13 +148,22 @@ closeShoppingCart.addEventListener('click', function () {
 });
 
 document.getElementById('signInLink').addEventListener('click', function() {
-    document.getElementById('action').value = 'signIn'; // Set action to sign-in
-    document.getElementById('submitBtn').textContent = 'SIGN IN'; // Update button text
+    document.getElementById('action').value = 'signIn'; 
+    document.getElementById('submitBtn').textContent = 'SIGN IN'; 
 });
 
 document.getElementById('signUpLink').addEventListener('click', function() {
-    document.getElementById('action').value = 'signUp'; // Set action to sign-up
-    document.getElementById('submitBtn').textContent = 'SIGN UP'; // Update button text
+    document.getElementById('action').value = 'signUp'; 
+    document.getElementById('submitBtn').textContent = 'SIGN UP'; 
 });
 
+// close user icon hover
+// const enterProfileElements = document.querySelectorAll('.enterProfile');
+// const profileIcon = document.getElementById('profileIcon');
+
+// enterProfileElements.forEach(element => {
+//   element.addEventListener('click', function() {
+//     profileIcon.classList.remove('group');
+//   });
+// });
 
